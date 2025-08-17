@@ -1,0 +1,28 @@
+{
+  "excelFile": {
+    "example-excel-file": {
+      "user_id": "test",
+      "product_name": "test",
+      "order_type": "test",
+      "price_value": "test",
+      "customer_code": "test",
+      "invoice_key": "test",
+      "status_type": "test",
+      "created_date": "test",
+      "updated_time": "test",
+      "total_amount": "test"
+    }
+  },
+  "excelNameType": {
+    "user_id": "string",
+    "product_name": "string",
+    "order_type": "string",
+    "price_value": "string",
+    "customer_code": "string",
+    "invoice_key": "string",
+    "status_type": "string",
+    "created_date": "string",
+    "updated_time": "string",
+    "total_amount": "string"
+  }
+}

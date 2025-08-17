@@ -3,10 +3,7 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import FileUpload from "./components/FileUpload";
 import KeysList from "./components/KeysList";
-
-interface ExcelData {
-  [key: string]: any[];
-}
+import { ExcelData, ExcelExportData } from "./types";
 
 // Function to extract keys from Excel formulas
 function extractKeysFromFormula(formula: string): string[] {
@@ -362,16 +359,26 @@ Keys preview: ${keysArray.slice(0, 10).join(", ")}${
   const downloadJson = useCallback(() => {
     if (extractedKeys.length === 0) return;
 
-    // Simple JSON with only the keys array
+    // Create the new JSON structure with filename as key and "test" as values
+    const fileName = file?.name.replace(/\.[^/.]+$/, "") || "excel-keys";
+
     const jsonData = {
-      keys: extractedKeys,
+      excelFile: {
+        [fileName]: {} as { [key: string]: string },
+      },
+      excelNameType: {} as { [key: string]: string },
     };
+
+    // Add all extracted keys with "test" as their value
+    extractedKeys.forEach((key) => {
+      jsonData.excelFile[fileName][key] = "test";
+      jsonData.excelNameType[key] = "string";
+    });
 
     const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
       type: "application/json;charset=utf-8",
     });
 
-    const fileName = file?.name.replace(/\.[^/.]+$/, "") || "excel-keys";
     saveAs(blob, `${fileName}-keys.json`);
   }, [extractedKeys, file]);
 
@@ -476,7 +483,7 @@ Keys preview: ${keysArray.slice(0, 10).join(", ")}${
                         d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    Download JSON
+                    Download Excel Keys JSON
                   </button>
                 </div>
                 <KeysList keys={extractedKeys} />
