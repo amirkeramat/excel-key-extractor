@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/excel-key-extractor/static/css/main.140b8f82.css",
+    "main.js": "/excel-key-extractor/static/js/main.17e54db0.js",
+    "static/js/453.92c9ae97.chunk.js": "/excel-key-extractor/static/js/453.92c9ae97.chunk.js",
+    "index.html": "/excel-key-extractor/index.html",
+    "main.140b8f82.css.map": "/excel-key-extractor/static/css/main.140b8f82.css.map",
+    "main.17e54db0.js.map": "/excel-key-extractor/static/js/main.17e54db0.js.map",
+    "453.92c9ae97.chunk.js.map": "/excel-key-extractor/static/js/453.92c9ae97.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.140b8f82.css",
+    "static/js/main.17e54db0.js"
+  ]
+}
